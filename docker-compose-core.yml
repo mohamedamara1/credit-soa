@@ -203,20 +203,7 @@ services:
     networks:
       - modeler
 
-  mailpit:
-    # If you want to use your own SMTP server, you can remove this container
-    # and configure RESTAPI_MAIL_HOST, RESTAPI_MAIL_PORT, REST_API_MAIL_USER,
-    # REST_API_MAIL_PASSWORD and RESTAPI_MAIL_ENABLE_TLS in modeler-restapi
-    container_name: mailpit
-    image: axllent/mailpit:${MAILPIT_VERSION}
-    ports:
-      - "1025:1025"
-      - "8075:8025"
-    healthcheck:
-      test: /usr/bin/nc -v localhost 1025
-      interval: 30s
-    networks:
-      - modeler
+
 
   # Modeler containers
   modeler-restapi:
@@ -226,8 +213,6 @@ services:
     depends_on:
       modeler-db:
         condition: service_healthy
-      mailpit:
-        condition: service_started
       identity:
         condition: service_healthy
     healthcheck:
