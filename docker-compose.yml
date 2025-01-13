@@ -29,27 +29,6 @@ services:
     networks:
       - microservices-net
 
-  api-gateway:
-    build: ./api-gateway
-    ports:
-      - "8080:8080"
-    networks:
-      - microservices-net
-
-  config-server:
-    build: ./config-server
-    ports:
-      - "8888:8888"
-    networks:
-      - microservices-net
-
-  eureka-server:
-    build: ./eureka-server
-    ports:
-      - "8761:8761"
-    networks:
-      - microservices-net
-
 networks:
   microservices-net:
     driver: bridge
