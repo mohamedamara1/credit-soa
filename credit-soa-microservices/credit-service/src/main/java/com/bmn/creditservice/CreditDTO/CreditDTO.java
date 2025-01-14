@@ -8,7 +8,7 @@ import lombok.Data;
 public class CreditDTO {
     private Long id;
 
-    //private String clientCin;
+    private String clientCin;
     private double montant;
     private Long baremeId;
     private double interet;

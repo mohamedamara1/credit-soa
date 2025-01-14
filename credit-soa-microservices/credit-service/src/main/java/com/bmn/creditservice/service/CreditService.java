@@ -51,6 +51,8 @@ public class CreditService {
 
     private CreditDTO mapToCreditDTO(Credit credit) {
         return CreditDTO.builder()
+                .id(credit.getId())
+                .clientCin(credit.getClientCin())
                 .montant(credit.getMontant())
                 .baremeId(credit.getBaremeId())
                 .interet(credit.getInteret())
