@@ -7,6 +7,7 @@ import com.bmn.scoredecisionservice.repository.ScoreRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -53,6 +54,7 @@ public class ScoreService {
         scoreResult.setScore(score);
         scoreResult.setEvaluation(evaluation);
 
+        scoreRepository.save(scoreResult);
         return scoreResult;
 
 
@@ -68,7 +70,7 @@ public class ScoreService {
         return optionalScore.get();
     }
 
-    public Iterable<Score> getAllScores() {
+    public List<Score> getAllScores() {
         return scoreRepository.findAll();
     }
 }
