@@ -1,0 +1,40 @@
+{
+  "components": [
+    {
+      "label": "CIN : ",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_083fif6",
+        "columns": null
+      },
+      "id": "Field_1rf8fqx",
+      "key": "textfield_cin",
+      "description": "8 numbers",
+      "defaultValue": "0",
+      "validate": {
+        "required": true,
+        "minLength": 8,
+        "maxLength": 8
+      }
+    },
+    {
+      "label": "Send",
+      "action": "submit",
+      "type": "button",
+      "layout": {
+        "row": "Row_0wm7c21",
+        "columns": null
+      },
+      "id": "Field_117yn64"
+    }
+  ],
+  "type": "default",
+  "id": "Form_0h4w9zp",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.6.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.30.0"
+  },
+  "schemaVersion": 17
+}
