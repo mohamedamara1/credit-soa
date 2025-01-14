@@ -157,16 +157,6 @@ services:
     profiles:
       - kibana
 
-  identity:
-    container_name: identity
-    image: camunda/identity:latest
-    environment:
-      IDENTITY_DATABASE_URL: jdbc:postgresql://modeler-db:5432/identity-db
-      IDENTITY_DATABASE_USERNAME: identity-user
-      IDENTITY_DATABASE_PASSWORD: identity-password
-    networks:
-      - camunda-platform
-
   modeler-db:
     container_name: modeler-db
     image: postgres:${POSTGRES_VERSION}
@@ -213,8 +203,6 @@ services:
     depends_on:
       modeler-db:
         condition: service_healthy
-      identity:
-        condition: service_healthy
     healthcheck:
       test: [ "CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8091/health/readiness" ]
       interval: 5s
@@ -233,7 +221,6 @@ services:
       RESTAPI_PUSHER_APP_ID: modeler-app
       RESTAPI_PUSHER_KEY: modeler-app-key
       RESTAPI_PUSHER_SECRET: modeler-app-secret
-      RESTAPI_OAUTH2_TOKEN_ISSUER: http://${KEYCLOAK_HOST}:18080/auth/realms/camunda-platform
       RESTAPI_OAUTH2_TOKEN_ISSUER_BACKEND_URL: http://keycloak:18080/auth/realms/camunda-platform
       RESTAPI_SERVER_URL: http://localhost:8070
       RESTAPI_MAIL_HOST: mailpit
@@ -280,6 +267,8 @@ services:
     networks:
       - modeler
       - camunda-platform
+
+
 volumes:
   zeebe:
   elastic:
