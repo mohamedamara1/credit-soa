@@ -8,7 +8,6 @@ public class CreditScoreRequest {
     private double mensualite;
     private String cin;
 
-    // Getters et Setters
     public Long getDossierReference() {
         return dossierReference;
     }
@@ -47,5 +46,17 @@ public class CreditScoreRequest {
 
     public void setCin(String cin) {
         this.cin = cin;
+    }
+
+    public CreditScoreRequest(Long dossierReference, double salary, String contractType, double mensualite, String cin) {
+        this.dossierReference = dossierReference;
+        this.salary = salary;
+        this.contractType = contractType;
+        this.mensualite = mensualite;
+        this.cin = cin;
+    }
+
+    public CreditScoreRequest() {
+
     }
 }

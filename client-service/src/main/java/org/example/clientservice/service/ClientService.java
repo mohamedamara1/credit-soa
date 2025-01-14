@@ -63,11 +63,12 @@ public class ClientService {
 
     private ClientDTO mapToClientDTO(Client client) {
         return ClientDTO.builder()
+                .cin(client.getCin())
                 .name(client.getName())
                 .salary(client.getSalary())
                 .contractType(client.getContractType())
                 .birthDate(client.getBirthDate())
-                .blacklisted(client.isBlackedlisted())
+                .blacklisted(client.isBlacklisted())
                 .build();
     }
 

@@ -24,7 +24,7 @@ public class Client {
     private String contractType;
     private String birthDate;
     // TO:DO: recheck the code if theres is an issue
-    private boolean blackedlisted;
+    private boolean blacklisted;
 
 
 }
