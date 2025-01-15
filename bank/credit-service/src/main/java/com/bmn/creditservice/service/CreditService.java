@@ -21,7 +21,7 @@ public class CreditService {
 
 
     public CreditDTO createCredit(CreditRequest creditRequest) {
-        String baremeServiceUrl = "http://localhost:8082/bareme/" + creditRequest.getBaremeId();
+        String baremeServiceUrl = "http://bareme-service/bareme/" + creditRequest.getBaremeId();
         BaremeResponse bareme = webClientBuilder.build().get()
                 .uri(baremeServiceUrl )
                 .retrieve()
