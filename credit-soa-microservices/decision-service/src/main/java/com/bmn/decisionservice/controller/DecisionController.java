@@ -1,12 +1,10 @@
 package com.bmn.decisionservice.controller;
 
 import com.bmn.decisionservice.model.Decision;
+import com.bmn.decisionservice.payload.DecisionRequest;
 import com.bmn.decisionservice.service.DesisionService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/decision")
@@ -17,12 +15,11 @@ public class DecisionController {
         this.decisionService = decisionService;
     }
 
-    @PostMapping("/{dossierReference}/{score}")
+    @PostMapping()
     public ResponseEntity<Decision> makeDecision(
-            @PathVariable Long dossierReference,
-            @PathVariable String score) {
+            @RequestBody DecisionRequest decisionRequest) {
 
-        Decision decision = decisionService.makeDecision(dossierReference, score);
+        Decision decision = decisionService.makeDecision(decisionRequest.getDossierRef(), decisionRequest.getDecision());
         return ResponseEntity.ok(decision);
     }
 }
