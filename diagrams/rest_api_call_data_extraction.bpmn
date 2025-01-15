@@ -50,11 +50,7 @@
     <bpmn:sequenceFlow id="Flow_0saaw3b" sourceRef="StartEvent_1" targetRef="Activity_0i5zyud" />
     <bpmn:sequenceFlow id="Flow_0xqdzuu" sourceRef="Activity_1wynp54" targetRef="Event_1vzw1jh" />
     <bpmn:startEvent id="StartEvent_1">
-      <bpmn:extensionElements>
-        <zeebe:ioMapping>
-          <zeebe:output source="=&#34;44332211&#34;" target="cin" />
-        </zeebe:ioMapping>
-      </bpmn:extensionElements>
+      <bpmn:extensionElements />
       <bpmn:outgoing>Flow_0saaw3b</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:userTask id="Activity_0i5zyud" name="submit_cin">
@@ -90,6 +86,9 @@
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_try_cin">
+      <bpmndi:BPMNShape id="Event_1vzw1jh_di" bpmnElement="Event_1vzw1jh">
+        <dc:Bounds x="792" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="182" y="102" width="36" height="36" />
       </bpmndi:BPMNShape>
@@ -101,20 +100,17 @@
         <dc:Bounds x="510" y="80" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1vzw1jh_di" bpmnElement="Event_1vzw1jh">
-        <dc:Bounds x="792" y="102" width="36" height="36" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_09omo8q_di" bpmnElement="Flow_09omo8q">
         <di:waypoint x="410" y="120" />
         <di:waypoint x="510" y="120" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0xqdzuu_di" bpmnElement="Flow_0xqdzuu">
-        <di:waypoint x="610" y="120" />
-        <di:waypoint x="792" y="120" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0saaw3b_di" bpmnElement="Flow_0saaw3b">
         <di:waypoint x="218" y="120" />
         <di:waypoint x="310" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0xqdzuu_di" bpmnElement="Flow_0xqdzuu">
+        <di:waypoint x="610" y="120" />
+        <di:waypoint x="792" y="120" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
